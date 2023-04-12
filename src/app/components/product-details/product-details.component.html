@@ -1,0 +1,74 @@
+<div class="grid m80">
+    <div class="col-12 lg:col-4 md:col-4 sm:col-12">
+        <div class="img-container flex justify-content-center">
+            <img src="../../../assets/headphones_c_2.webp" alt="">
+        </div>
+        <div class="grid">
+            <div class="col-4 img-options" *ngFor="let img of imgOptions">
+                <div class="img-container options flex justify-content-center">
+                    <img src="../../../assets/headphones_c_2.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 lg:col-8 md:col-8 sm:col-12">
+        <h2 class="title">boAt Party</h2>
+        <p-rating [(ngModel)]="val2" [cancel]="false"></p-rating> <span>&nbsp;(20)</span>
+        <p>Details:</p>
+        <p class="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+            optio, eaque rerum! Provident similique accusantium nemo autem.</p>
+        <p class="price">$56</p>
+        <div class="flex mb20">
+            <label for="">Quantity:&nbsp;</label>
+            <app-counter [itemCount]="itemCount" (itemCountIncEvent)="itemCountIncEvent()"
+                (itemCountDecEvent)="itemCountDecEvent()"></app-counter>
+        </div>
+        <button pRipple class="secondary" (click)="addItemToCart()">Add to cart</button>
+        <button pRipple class="primary" (click)="openCart = true">Buy Now</button>
+    </div>
+
+    <div class="col-12 relative">
+        <h3 class="heading3">Reviews</h3>
+        <div class="col-2 col-offset-5 line mb-4"></div>
+        <button pRipple class="primary absolute right-0" (click)="onAddReview()">Buy Now</button>
+
+        <textarea rows="5" cols="30" pInputTextarea></textarea>
+
+        <app-review *ngFor="let review of reviews"></app-review>
+    </div>
+
+    <div class="col-12">
+        <h3 class="heading3">You May Also Like</h3>
+        <div class="col-2 col-offset-5 line"></div>
+    </div>
+
+    <!-- slider -->
+    <div class="col-12">
+        <p-carousel [value]="products" [numVisible]="5" [numScroll]="5" [circular]="false"
+            [responsiveOptions]="responsiveOptions">
+            <ng-template let-product pTemplate="item">
+                <div class="product-item">
+                    <div class="product-item-content">
+                        <app-product></app-product>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+</div>
+
+<!-- sidebar -->
+<p-sidebar [(visible)]="openCart" position="right" [baseZIndex]="10000">
+    <app-cart-item></app-cart-item>
+    <div class="grid">
+        <div class="col-12">
+            <p class="total"><span>Subtotal</span><span>$40</span></p>
+        </div>
+        <div class="col-12">
+            <p-button (click)="onCheckout()" label="Checkout"></p-button>
+        </div>
+    </div>
+</p-sidebar>

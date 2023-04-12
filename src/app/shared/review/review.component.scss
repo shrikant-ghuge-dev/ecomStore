@@ -1,0 +1,27 @@
+@import "../../../variables.scss";
+
+.date {
+    float: right;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.container {
+    background: $imgBackground;
+}
+
+.badge {
+    color: $white;
+    background: #18b75f;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.para {
+    font-weight: 300;
+}
+
+.author {
+    font-size: 12px;
+    color: gray;
+}

@@ -1,0 +1,27 @@
+@import "../../../variables.scss";
+
+.container {
+    cursor: pointer;
+    transition: .1s ease-in-out 0.1s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    .img-back {
+        background: $imgBackground;
+        // width: 135px;
+        height: 140px;
+        border-radius: 5px;
+        justify-content: center;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .title {
+        font-weight: 300;
+        margin: 7px 0;
+    }
+}

@@ -1,0 +1,44 @@
+@import "../../../variables.scss";
+
+.container {
+    margin: 111px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.2);
+}
+
+.payment {
+    background: #dee2e67d;
+    // padding: 20px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.p-inputtext {
+    width: 100%;
+    border-radius: 7px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeholder {
+    font-weight: 300;
+}
+
+::ng-deep {
+    .p-dropdown {
+        width: 162px;
+        margin-right: 5px;
+
+        &.p-dropdown-clearable {
+            .p-dropdown-label {
+                padding-right: .5rem;
+            }
+        }
+    }
+}

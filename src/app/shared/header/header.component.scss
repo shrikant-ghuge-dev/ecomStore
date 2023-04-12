@@ -1,0 +1,59 @@
+@import "../../../variables.scss";
+
+//SCSS Inheritence
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.navbar {
+    @extend %flex;
+    background: $primary;
+    padding: 15px;
+    color: $white;
+}
+
+.cart {
+    .pi-shopping-cart {
+        font-size: 16px;
+        color: $white;
+    }
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.menu {
+    list-style: none;
+    padding-left: 0;
+    @extend %flex;
+
+    li {
+        margin-left: 30px;
+
+        a {
+            text-decoration: none;
+            color: $white;
+
+            &:hover {
+                color: #0164f9d9;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}

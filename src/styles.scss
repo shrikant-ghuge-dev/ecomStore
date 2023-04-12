@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~primeflex/primeflex.css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&family=Roboto:wght@300;500;700&family=Shantell+Sans:wght@300;500;700&display=swap');
+@import "variables.scss";
+
+//SCSS Mixin
+@mixin btntheme($btnTheme, $textColor) {
+    background: $btnTheme;
+    color: $textColor;
+    padding: 8px 15px;
+    border-radius: 3px;
+    border-color: $btnTheme;
+    font-weight: bold;
+    width: 150px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.grid {
+    margin: 0;
+}
+
+.primary {
+    @include btntheme($btnTheme: $btnColor, $textColor: white);
+
+    // &:hover {
+    //     background: white;
+    //     color: $primary;
+    // }
+}
+
+.secondary {
+    @include btntheme($btnTheme: white, $textColor: $btnColor);
+    border-color: $btnColor;
+}

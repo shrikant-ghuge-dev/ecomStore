@@ -1,0 +1,17 @@
+<div class="grid">
+    <div class="col-12 lg:col-4">
+        <div class="img-container h95">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="col-12 lg:col-6 pstn">
+        <div>Watch</div>
+        <app-counter class="bottom" [itemCount]="cartItemCount" (itemCountIncEvent)="cartItemCountInc()"
+            (itemCountDecEvent)="cartItemCountDec()"></app-counter>
+    </div>
+    <div class="col-12 lg:col-2 pstn">
+        <div class="price f16">$45</div>
+        <div class="bottom right" (click)="onRemoveProduct()"><i class="pi pi-times"></i></div>
+    </div>
+    <hr style="width: 100%;" />
+</div>

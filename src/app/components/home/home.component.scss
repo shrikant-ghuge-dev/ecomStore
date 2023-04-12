@@ -1,0 +1,37 @@
+@import "../../../variables.scss";
+
+span {
+    &.p-input-icon-left {
+        width: 100%;
+    }
+
+    .p-inputtext {
+        border-radius: 15px;
+        width: 50%;
+    }
+}
+
+.container {
+    margin: 20px;
+}
+
+::ng-deep {
+
+    .filters {
+        background: #82add77d;
+        border-radius: 5px;
+
+        .p-slider {
+            margin-top: 15px;
+        }
+
+        .p-dropdown {
+            width: 80px;
+
+            .p-dropdown-label {
+                padding: 5px;
+            }
+        }
+    }
+
+}

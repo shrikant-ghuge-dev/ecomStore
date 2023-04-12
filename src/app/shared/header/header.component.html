@@ -1,0 +1,21 @@
+<header>
+    <div class="navbar flex">
+        <div class="logo" routerLink="/">EcomStore</div>
+        <div class="mobile-menu">
+            <span>&#9776;</span>
+        </div>
+        <div class="menu">
+            <ul class="flex menu">
+                <li><a routerLink="/">Home</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li class="cart">
+                    <!-- <i class="pi pi-shopping-cart"></i> -->
+                    <i class="pi pi-shopping-cart mr-4 p-text-secondary" pBadge [value]="cartCount"></i>
+                    <!-- <div class="cart-count">0</div> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="grid">
+        <div class="col-12 lg:col-8 p-4">
+            <h3>Final Order</h3>
+            <app-cart-item></app-cart-item>
+            <div class="col-12">
+                <p class="total"><span>Total</span><span>$40</span></p>
+            </div>
+        </div>
+        <!-- <div class="grid">
+            <div class="col-12">
+                <p-button (click)="onCheckout()" label="Checkout"></p-button>
+            </div>
+        </div> -->
+        <div class="col-12 lg:col-4 payment p-4">
+            <h3>Payment Options</h3>
+            <form>
+                <span class="p-float-label mb-5">
+                    <input id="float-input-invalid" type="text" pInputText>
+                    <label for="float-input-invalid" class="placeholder">Account Number</label>
+                </span>
+                <span class="p-float-label mb-5">
+                    <input id="float-input-invalid" type="text" pInputText>
+                    <label for="float-input-invalid" class="placeholder">Account Holder Name</label>
+                </span>
+
+                <div class="flex mb-5">
+                    <p-dropdown [options]="months" placeholder="Select a Month" optionLabel="label" [showClear]="true">
+                    </p-dropdown>
+                    <p-dropdown [options]="years" placeholder="Select a Year" [showClear]="true">
+                    </p-dropdown>
+                </div>
+                <button pButton pRipple type="button" label="Continue Payment" class="p-button-danger"></button>
+            </form>
+        </div>
+    </div>
+</div>

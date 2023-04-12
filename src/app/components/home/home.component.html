@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="grid">
+        <div class="col-12 lg:col-8 lg:col-offset-4">
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText placeholder="Search Product" [(ngModel)]="value3" />
+            </span>
+        </div>
+        <div class="col-12">
+            <div class="grid">
+                <div class="lg:col-2">
+                    <div class="filters p-3">
+                        <h3 class="mt-0">Filters</h3>
+                        <div class="flex justify-content-between"><span>{{priceSlider}}</span> <span>Clear</span></div>
+                        <p-slider class="mt-2" [(ngModel)]="priceSlider"></p-slider>
+
+                        <hr class="mt-5" />
+
+                        <p for="">Price</p>
+                        <div class="flex justify-content-between">
+                            <p-dropdown [options]="priceMin" placeholder="Min" [showClear]="true">
+                            </p-dropdown>
+                            <p-dropdown [options]="priceMax" placeholder="Max" [showClear]="true">
+                            </p-dropdown>
+                        </div>
+                        <hr class="mt-5" />
+
+                        <div>
+                            <p>Customer Rating</p>
+                            <div class="field-checkbox" *ngFor="let rating of custRatings; let i = index">
+                                <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox>
+                                <label for="binary">{{i+1}} <i class="pi pi-star"></i> & above</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 p-0">
+                    <div class="grid">
+                        <div class="col-12 lg:col-2 md:col-3 sm:col-4 col-nogutter" *ngFor="let product of products">
+                            <app-product (click)="onProductClick()"></app-product>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
