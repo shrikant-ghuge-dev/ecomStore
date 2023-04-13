@@ -5,13 +5,18 @@
         </div>
     </div>
     <div class="col-12 lg:col-6 pstn">
-        <div>Watch</div>
+        <div>Watch <span *ngIf="isItemDeliveredStatus" class="ml-8">Status: <span class="status">Delivered</span></span>
+        </div>
         <app-counter class="bottom" [itemCount]="cartItemCount" (itemCountIncEvent)="cartItemCountInc()"
             (itemCountDecEvent)="cartItemCountDec()"></app-counter>
     </div>
     <div class="col-12 lg:col-2 pstn">
-        <div class="price f16">$45</div>
-        <div class="bottom right" (click)="onRemoveProduct()"><i class="pi pi-times"></i></div>
+        <div class="price f16 text-right">$45</div>
+        <div *ngIf="isRemoveCartItemIcon" class="bottom right" (click)="onRemoveProduct()"><i class="pi pi-times"></i>
+        </div>
     </div>
+    <!-- <div class="col-12" *ngIf="true">
+        <div>Discount Coupon</div>
+    </div> -->
     <hr style="width: 100%;" />
 </div>

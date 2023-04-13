@@ -10,12 +10,14 @@ import { LocalDataService } from 'src/app/services/local-data.service';
 export class ProductDetailsComponent implements OnInit {
   val2: number = 3;
   itemCount: number = 1;
+  // isItemDeliveredStatus = false;
   cartItemCount = 1;
   imgOptions = [{}, {}, {}];
   cartProducts = [{}, {}, {}];
-  openCart = false;
+  openCart;
   products = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
   reviews = [{}, {}, {}];
+  isAddCommentVisible = false;
 
   responsiveOptions;
 
@@ -41,6 +43,9 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.localDataService.isCartPanelOpen$.subscribe(res => {
+      this.openCart = res;
+    })
   }
 
   addItemToCart() {
@@ -81,6 +86,16 @@ export class ProductDetailsComponent implements OnInit {
     this.route.navigate(['checkout']);
   }
 
-  onAddReview() { }
+  onAddReview() {
+    this.isAddCommentVisible = !this.isAddCommentVisible;
+  }
+
+  onSubmitReview() {
+    this.reviews.push({});
+  }
+
+  onCartOpen() {
+    this.openCart = true;
+  }
 
 }

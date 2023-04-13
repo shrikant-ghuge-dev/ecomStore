@@ -8,5 +8,8 @@ export class LocalDataService {
   cartCount = new BehaviorSubject(0);
   cartCount$ = this.cartCount.asObservable();
 
+  isCartPanelOpen = new BehaviorSubject(false);
+  isCartPanelOpen$ = this.isCartPanelOpen.asObservable();
+
   constructor() { }
 }

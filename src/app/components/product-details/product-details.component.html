@@ -11,9 +11,9 @@
             </div>
         </div>
     </div>
-    <div class="col-12 lg:col-8 md:col-8 sm:col-12">
+    <div class="col-12 lg:col-8 md:col-8 sm:col-12 prod-details">
         <h2 class="title">boAt Party</h2>
-        <p-rating [(ngModel)]="val2" [cancel]="false"></p-rating> <span>&nbsp;(20)</span>
+        <p-rating [(ngModel)]="val2" [cancel]="false" [disabled]="true"></p-rating> <span>&nbsp;(20)</span>
         <p>Details:</p>
         <p class="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
@@ -26,15 +26,20 @@
                 (itemCountDecEvent)="itemCountDecEvent()"></app-counter>
         </div>
         <button pRipple class="secondary" (click)="addItemToCart()">Add to cart</button>
-        <button pRipple class="primary" (click)="openCart = true">Buy Now</button>
+        <button pRipple class="primary" (click)="onCartOpen()">Buy Now</button>
     </div>
 
     <div class="col-12 relative">
         <h3 class="heading3">Reviews</h3>
         <div class="col-2 col-offset-5 line mb-4"></div>
-        <button pRipple class="primary absolute right-0" (click)="onAddReview()">Buy Now</button>
+        <button pRipple class="primary absolute" (click)="onAddReview()"><span>Post Review</span></button>
 
-        <textarea rows="5" cols="30" pInputTextarea></textarea>
+        <div class="mb-3" *ngIf="isAddCommentVisible">
+            <p-rating [(ngModel)]="val2" [cancel]="false"></p-rating>
+            <textarea class="w-full mb-3" placeholder="Enter review text here" rows="5" cols="30"
+                pInputTextarea></textarea>
+            <p-button (click)="onSubmitReview()" label="Submit"></p-button>
+        </div>
 
         <app-review *ngFor="let review of reviews"></app-review>
     </div>
@@ -62,7 +67,7 @@
 
 <!-- sidebar -->
 <p-sidebar [(visible)]="openCart" position="right" [baseZIndex]="10000">
-    <app-cart-item></app-cart-item>
+    <app-cart-item [isRemoveCartItemIcon]="true" [isItemDeliveredStatus]="false"></app-cart-item>
     <div class="grid">
         <div class="col-12">
             <p class="total"><span>Subtotal</span><span>$40</span></p>

@@ -31,6 +31,17 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ReviewComponent } from './shared/review/review.component';
 import { SliderModule } from 'primeng/slider';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ProfileComponent } from './components/profile/profile.component';
+import { Interceptor } from './services/http.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { HttpService } from './services/http.service';
+import { TabViewModule } from 'primeng/tabview';
+import { AddressComponent } from './components/address/address.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +56,12 @@ import { CheckboxModule } from 'primeng/checkbox';
     HomeComponent,
     CheckoutComponent,
     CartItemComponent,
-    ReviewComponent
+    ReviewComponent,
+    ProfileComponent,
+    AddressComponent,
+    SettingsComponent,
+    OrdersComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,9 +79,14 @@ import { CheckboxModule } from 'primeng/checkbox';
     DropdownModule,
     InputTextareaModule,
     SliderModule,
-    CheckboxModule
+    CheckboxModule,
+    ProgressSpinnerModule,
+    RadioButtonModule,
+    HttpClientModule,
+    TabViewModule
   ],
-  providers: [MessageService, LocalDataService],
+  providers: [MessageService, LocalDataService, HttpService,
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

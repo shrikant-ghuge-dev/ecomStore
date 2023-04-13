@@ -7,13 +7,14 @@
         <div class="menu">
             <ul class="flex menu">
                 <li><a routerLink="/">Home</a></li>
-                <li><a href="">Products</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-                <li class="cart">
-                    <!-- <i class="pi pi-shopping-cart"></i> -->
+                <!-- <li><a href="">Products</a></li>
+                <li><a href="">About</a></li> -->
+                <li routerLink="/profile" class="flex justify-content-center h-2rem align-items-center cursor-pointer">
+                    <img class="h-full mr-1" src="../../../assets/profile.svg" alt="">
+                    <span>Shrikant</span>
+                </li>
+                <li class="cart cursor-pointer" (click)="onCartClick()">
                     <i class="pi pi-shopping-cart mr-4 p-text-secondary" pBadge [value]="cartCount"></i>
-                    <!-- <div class="cart-count">0</div> -->
                 </li>
             </ul>
         </div>

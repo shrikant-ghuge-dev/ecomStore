@@ -11,7 +11,8 @@
                 <div class="lg:col-2">
                     <div class="filters p-3">
                         <h3 class="mt-0">Filters</h3>
-                        <div class="flex justify-content-between"><span>{{priceSlider}}</span> <span>Clear</span></div>
+                        <div class="flex justify-content-between"><span>{{priceSlider}}</span> <span
+                                class="font-light">Clear</span></div>
                         <p-slider class="mt-2" [(ngModel)]="priceSlider"></p-slider>
 
                         <hr class="mt-5" />
@@ -29,7 +30,8 @@
                             <p>Customer Rating</p>
                             <div class="field-checkbox" *ngFor="let rating of custRatings; let i = index">
                                 <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox>
-                                <label for="binary">{{i+1}} <i class="pi pi-star"></i> & above</label>
+                                <label for="binary" class="font-light">{{i+1}} <i class="pi pi-star"></i> &
+                                    above</label>
                             </div>
                         </div>
                     </div>

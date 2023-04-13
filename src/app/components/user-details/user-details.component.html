@@ -1,0 +1,30 @@
+<h3 class="mt-0">Personal Information</h3>
+<form action="">
+    <span class="p-float-label mb-5 mt-5">
+        <input id="float-input-invalid" type="text" pInputText>
+        <label for="float-input-invalid" class="placeholder">First Name</label>
+    </span>
+    <span class="p-float-label mb-5">
+        <input id="float-input-invalid" type="text" pInputText>
+        <label for="float-input-invalid" class="placeholder">Last Name</label>
+    </span>
+    <p>Gender</p>
+    <div class="field-radiobutton">
+        <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
+        <label for="city1" class="font-light">Male</label>
+    </div>
+    <div class="field-radiobutton">
+        <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2">
+        </p-radioButton>
+        <label for="city2" class="font-light">Female</label>
+    </div>
+    <span class="p-float-label mb-5 mt-5">
+        <input id="float-input-invalid" type="text" pInputText>
+        <label for="float-input-invalid" class="placeholder">Mobile Number</label>
+    </span>
+    <span class="p-float-label mb-5">
+        <input id="float-input-invalid" type="text" pInputText>
+        <label for="float-input-invalid" class="placeholder">Email</label>
+    </span>
+    <p-button label="Update"></p-button>
+</form>

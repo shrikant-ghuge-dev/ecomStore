@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
   value6;
+  isCouponApplied = false;
+  // isItemDeliveredStatus = false;
   months = [
     {
       label: 'Jan', value: 1
@@ -50,6 +52,10 @@ export class CheckoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onApplyCoupon() {
+    this.isCouponApplied = true;
   }
 
 }

@@ -1,0 +1,54 @@
+@import "../../../variables.scss";
+
+%menu-container {
+    border-radius: 5px;
+    background: $white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08);
+    padding: 25px;
+}
+
+.side-menus {
+    @extend %menu-container;
+}
+
+.side-personal {
+    @extend %menu-container;
+}
+
+.container {
+    background: #f1f3f6;
+}
+
+// ::ng-deep {
+//     .p-tabview {
+//         &.p-component {
+//             display: flex;
+//         }
+
+//         .p-tabview-nav {
+//             display: block;
+//         }
+
+//         .p-tabview-ink-bar {
+//             display: none !important;
+//             height: 0;
+//             width: 0;
+//         }
+
+//         .p-tabview-nav-container {
+//             border-radius: 5px;
+//         }
+
+//         .p-tabview-panels {
+//             margin-left: 20px;
+//             border-radius: 5px;
+//         }
+//     }
+// }
+
+
+@media screen and (max-width: 680px) {
+    .p-7 {
+        padding: 3rem !important;
+    }
+}
