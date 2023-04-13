@@ -11,5 +11,8 @@ export class LocalDataService {
   isCartPanelOpen = new BehaviorSubject(false);
   isCartPanelOpen$ = this.isCartPanelOpen.asObservable();
 
+  isLoggedin = new BehaviorSubject(false);
+  isLoggedin$ = this.isLoggedin.asObservable();
+
   constructor() { }
 }

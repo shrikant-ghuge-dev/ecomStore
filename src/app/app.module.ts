@@ -15,7 +15,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RatingModule } from 'primeng/rating';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RippleModule } from 'primeng/ripple';
 import { SidebarModule } from 'primeng/sidebar';
 import { CounterComponent } from './shared/counter/counter.component';
@@ -83,7 +83,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     ProgressSpinnerModule,
     RadioButtonModule,
     HttpClientModule,
-    TabViewModule
+    TabViewModule,
+    ReactiveFormsModule
   ],
   providers: [MessageService, LocalDataService, HttpService,
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }],

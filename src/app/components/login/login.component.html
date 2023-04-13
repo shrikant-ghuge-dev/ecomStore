@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="grid background">
+    <div class="col-12">
+        <section class="form animated">
+            <h2>Login</h2>
+            <p class="valid">Valid. Please wait a moment.</p>
+            <p class="error">Error. Please enter correct Username &amp; password.</p>
+            <form class="loginbox" autocomplete="off" [formGroup]="loginForm">
+                <!-- <input placeholder="Username" type="text" formControlName="email" id="username" /> -->
+                <div class="mb-5 mt-5">
+                    <span class="p-float-label">
+                        <input class="w-full" id="float-input" type="text" pInputText>
+                        <label for="float-input">Email</label>
+                    </span>
+                </div>
+                <div class="mb-4">
+                    <span class="p-float-label">
+                        <input class="w-full" id="float-input" type="text" pInputText>
+                        <label for="float-input">Password</label>
+                    </span>
+                </div>
+                <!-- <input placeholder="Password" type="password" formControlName="password" id="password" /> -->
+                <!-- <button id="submit" (click)="onLogin()">Login</button> -->
+                <div class="w-full">
+                    <p-button class="login" (click)="onLogin()" label="Login"></p-button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
