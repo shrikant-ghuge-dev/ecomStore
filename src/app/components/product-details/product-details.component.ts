@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LocalDataService } from 'src/app/services/local-data.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -21,8 +22,16 @@ export class ProductDetailsComponent implements OnInit {
 
   responsiveOptions;
 
+  //
 
-  constructor(private localDataService: LocalDataService, private route: Router) {
+  productId;
+  productDetails;
+  ratingValue;
+  baseUrl = "http://localhost:4000/";
+  imgUrl;
+
+
+  constructor(private localDataService: LocalDataService, private route: Router, private productService: ProductsService, private router: ActivatedRoute) {
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -40,11 +49,25 @@ export class ProductDetailsComponent implements OnInit {
         numScroll: 1
       }
     ];
+
+    this.router.params.subscribe(params => {
+      this.productId = params['id'];
+    });
   }
 
   ngOnInit(): void {
     this.localDataService.isCartPanelOpen$.subscribe(res => {
       this.openCart = res;
+    });
+
+    this.productService.getProductDeatils(this.productId).subscribe(res => {
+      let productDetails = JSON.parse(res.data);
+      this.productDetails = productDetails;
+      this.ratingValue = parseInt(this.productDetails.review);
+      this.reviews = JSON.parse(this.productDetails.reviews);
+      const img = JSON.parse(this.productDetails?.image);
+      this.imgUrl = this.baseUrl + img[0]?.image_url;
+
     })
   }
 

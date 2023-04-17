@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http.service';
 import { LocalDataService } from 'src/app/services/local-data.service';
 
 @Component({
@@ -13,14 +14,16 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl('')
   });
-  constructor(private route: Router, private localDataService: LocalDataService) { }
+  constructor(private route: Router, private localDataService: LocalDataService, private commonService: HttpService) { }
 
   ngOnInit(): void {
   }
 
   onLogin() {
-    this.localDataService.isLoggedin.next(true);
-    this.route.navigate(['home']);
+    this.commonService.login(this.loginForm.value).subscribe(res => {
+      this.route.navigate(['home']);
+      this.localDataService.isLoggedin.next(true);
+    })
   }
 
 }

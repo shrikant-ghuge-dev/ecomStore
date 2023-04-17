@@ -1,8 +1,8 @@
 <div class="container relative">
-    <div class="absolute discount">50%</div>
+    <div class="absolute discount" *ngIf="product?.discount">{{product?.discount}}%</div>
     <div class="img-back flex">
-        <img src="../../../assets/headphones_c_2.webp" alt="">
+        <img [src]='baseUrl + product?.image_url' alt="">
     </div>
-    <h5 class="title">boAT Rockertz</h5>
-    <span>$56</span>
+    <h5 class="title">{{product?.name}}</h5>
+    <span>{{product?.price | currency: 'USD' : 'symbol' : '1.0-0'}}</span>
 </div>

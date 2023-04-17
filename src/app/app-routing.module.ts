@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 
@@ -16,7 +17,11 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: "product/details",
+    path: "register",
+    component: RegisterComponent
+  },
+  {
+    path: "product/details/:id",
     component: ProductDetailsComponent
   },
   {

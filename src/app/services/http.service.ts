@@ -9,25 +9,27 @@ export class HttpService {
 
   constructor(private http: HttpClient) {
   }
-  getUsers(): Observable<any> {
-    return this.http
-      .get<any>('https://jsonplaceholder.typicode.com/users')
-      .pipe(retry(1), catchError(this.handleError));
+  register(newUserData): Observable<any> {
+    return this.http.post<any>('http://localhost:4000/register', newUserData);
   }
 
-  // Error handling
-  handleError(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    window.alert(errorMessage);
-    return throwError(() => {
-      return errorMessage;
-    });
+  login(userData): Observable<any> {
+    return this.http.post<any>('http://localhost:4000/login', userData);
   }
+
+  // // Error handling
+  // handleError(error: any) {
+  //   let errorMessage = '';
+  //   if (error.error instanceof ErrorEvent) {
+  //     // Get client-side error
+  //     errorMessage = error.error.message;
+  //   } else {
+  //     // Get server-side error
+  //     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  //   }
+  //   window.alert(errorMessage);
+  //   return throwError(() => {
+  //     return errorMessage;
+  //   });
+  // }
 }

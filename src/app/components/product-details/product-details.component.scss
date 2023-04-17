@@ -70,6 +70,10 @@
     color: $primary;
     font-size: 22px;
 
+    .cross {
+        text-decoration: line-through;
+    }
+
     &.f16 {
         font-size: 16px;
         right: 8px;

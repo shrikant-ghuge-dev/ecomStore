@@ -1,7 +1,7 @@
 <div class="grid m80">
     <div class="col-12 lg:col-4 md:col-4 sm:col-12">
         <div class="img-container flex justify-content-center">
-            <img src="../../../assets/headphones_c_2.webp" alt="">
+            <img [src]="imgUrl" alt="">
         </div>
         <div class="grid">
             <div class="col-4 img-options" *ngFor="let img of imgOptions">
@@ -12,14 +12,14 @@
         </div>
     </div>
     <div class="col-12 lg:col-8 md:col-8 sm:col-12 prod-details">
-        <h2 class="title">boAt Party</h2>
-        <p-rating [(ngModel)]="val2" [cancel]="false" [disabled]="true"></p-rating> <span>&nbsp;(20)</span>
+        <h2 class="title">{{productDetails?.name}}</h2>
+        <p-rating [(ngModel)]="ratingValue" [cancel]="false" [disabled]="true"></p-rating>
+        <span>&nbsp;({{productDetails?.total_rating_count}})</span>
         <p>Details:</p>
-        <p class="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-            optio, eaque rerum! Provident similique accusantium nemo autem.</p>
-        <p class="price">$56</p>
+        <p class="details">{{productDetails?.descripion}}</p>
+        <p class="price"><span [ngClass]="productDetails?.discount ? 'cross' : ''">{{productDetails?.price | currency:
+                'USD' : 'symbol' : '1.0-0'}}</span> {{productDetails?.final_price
+            | currency: 'USD' : 'symbol' : '1.0-0'}}</p>
         <div class="flex mb20">
             <label for="">Quantity:&nbsp;</label>
             <app-counter [itemCount]="itemCount" (itemCountIncEvent)="itemCountIncEvent()"
@@ -41,7 +41,7 @@
             <p-button (click)="onSubmitReview()" label="Submit"></p-button>
         </div>
 
-        <app-review *ngFor="let review of reviews"></app-review>
+        <app-review [review]="review" *ngFor="let review of reviews"></app-review>
     </div>
 
     <div class="col-12">

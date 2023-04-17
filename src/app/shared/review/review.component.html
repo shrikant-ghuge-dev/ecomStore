@@ -1,14 +1,12 @@
 <div class="container p-3">
     <div class="grid">
         <div class="col-12">
-            <h4><span class="badge"><i class="pi pi-star"></i> 4</span> Excellent <span class="date">31 Mar 2023</span>
+            <h4><span class="badge">{{review.rating}} <i class="pi pi-star"></i></span> {{review.title}} <span
+                    class="date">{{review.created_date | date}}</span>
             </h4>
-            <p class="para">This product is of good quality. Its sound is really good. Pitch is high along with great
-                quality base.
-                Overall it is a
-                delight to listen music through it, I am very happy and would recommend it.</p>
+            <p class="para">{{review.description}}</p>
 
-            <span class="author">By Avinash</span> <span class="edit"><i class="pi pi-pencil"></i></span>
+            <span class="author">By {{review.user}}</span> <span class="edit"><i class="pi pi-pencil"></i></span>
         </div>
     </div>
 </div>

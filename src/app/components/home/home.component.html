@@ -3,7 +3,8 @@
         <div class="col-12 lg:col-8 lg:col-offset-4">
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
-                <input type="text" pInputText placeholder="Search Product" [(ngModel)]="value3" />
+                <input type="text" pInputText placeholder="Search Product" [(ngModel)]="searchStr"
+                    (ngModelChange)="notesModelChanged.next($event)" />
             </span>
         </div>
         <div class="col-12">
@@ -29,7 +30,8 @@
                         <div>
                             <p>Customer Rating</p>
                             <div class="field-checkbox" *ngFor="let rating of custRatings; let i = index">
-                                <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox>
+                                <p-checkbox [(ngModel)]="checked['rating' + i]" (onChange)="onRating()" [binary]="true"
+                                    inputId="binary"></p-checkbox>
                                 <label for="binary" class="font-light">{{i+1}} <i class="pi pi-star"></i> &
                                     above</label>
                             </div>
@@ -37,11 +39,17 @@
                     </div>
                 </div>
                 <div class="col-10 p-0">
-                    <div class="grid">
+                    <div class="grid" *ngIf="products; else showProducts">
                         <div class="col-12 lg:col-2 md:col-3 sm:col-4 col-nogutter" *ngFor="let product of products">
-                            <app-product (click)="onProductClick()"></app-product>
+                            <app-product [product]="product" (click)="onProductClick(product.product_id)">
+                            </app-product>
                         </div>
                     </div>
+                    <ng-template #showProducts>
+                        <div class="col-12">
+                            <h3 class="text-center">No results found!</h3>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </div>

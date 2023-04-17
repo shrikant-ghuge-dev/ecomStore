@@ -1,1 +1,60 @@
-<p>register works!</p>
+<div class="grid background">
+    <div class="col-12">
+        <div class="form animated">
+            <h2>Register</h2>
+            <p class="valid">Valid. Please wait a moment.</p>
+            <p class="error">Error. Please enter correct Username &amp; password.</p>
+            <form class="loginbox" autocomplete="off" [formGroup]="registerForm">
+                <!-- <input placeholder="Username" type="text" formControlName="email" id="username" /> -->
+                <div class="mb-5 mt-5">
+                    <span class="p-float-label">
+                        <input class="w-full" formControlName="firstName" type="text" pInputText>
+                        <label for="float-input">First Name</label>
+                    </span>
+                </div>
+                <div class="mb-5 mt-5">
+                    <span class="p-float-label">
+                        <input class="w-full" formControlName="lastName" type="text" pInputText>
+                        <label for="float-input">Last Name</label>
+                    </span>
+                </div>
+                <p>Gender</p>
+                <div class="flex">
+                    <div class="field-radiobutton mb-0 mr-3">
+                        <p-radioButton name="gender" formControlName="gender" value="male" inputId="city1">
+                        </p-radioButton>
+                        <label for="city1" class="font-light">Male</label>
+                    </div>
+                    <div class="field-radiobutton mb-0">
+                        <p-radioButton name="gender" formControlName="gender" value="female" inputId="city2">
+                        </p-radioButton>
+                        <label for="city2" class="font-light">Female</label>
+                    </div>
+                </div>
+                <div class="mb-5 mt-5">
+                    <span class="p-float-label">
+                        <input class="w-full" formControlName="mobileNumber" type="text" pInputText>
+                        <label for="float-input">Mobile Number</label>
+                    </span>
+                </div>
+                <div class="mb-5 mt-5">
+                    <span class="p-float-label">
+                        <input class="w-full" formControlName="email" type="email" pInputText>
+                        <label for="float-input">Email</label>
+                    </span>
+                </div>
+                <div class="mb-4">
+                    <span class="p-float-label">
+                        <input class="w-full" formControlName="password" type="password" pInputText>
+                        <label for="float-input">Password</label>
+                    </span>
+                </div>
+                <!-- <input placeholder="Password" type="password" formControlName="password" id="password" /> -->
+                <!-- <button id="submit" (click)="onLogin()">Login</button> -->
+                <div class="w-full">
+                    <p-button class="login" (click)="onRegister()" label="Register"></p-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
